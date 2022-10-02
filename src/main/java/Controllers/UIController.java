@@ -26,9 +26,13 @@ public class UIController implements Initializable {
     public Label code2_amt;
     public MenuButton choose1;
     public MenuButton choose2;
+    public Label to_label;
+    public Label from_label;
 
     ArrayList<String> codes;
     CurrencyPair pair = new CurrencyPair();
+
+    Singleton db_singleton = Singleton.getInstance();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -40,6 +44,7 @@ public class UIController implements Initializable {
         }
         code1.textProperty().addListener((observable, oldValue, newValue) -> {
             code1_text();
+
         });
         code2.textProperty().addListener((observable, oldValue, newValue) -> {
             code2_text();
@@ -55,6 +60,7 @@ public class UIController implements Initializable {
             menuItem.setOnAction((actionEvent) -> {
                 choose1.setText(menuItem.getText().toUpperCase());
                 code1.setText(menuItem.getText().toUpperCase());
+
             });
             items1.add(menuItem);
         }
@@ -64,19 +70,20 @@ public class UIController implements Initializable {
             menuItem.setOnAction((actionEvent) -> {
                 choose2.setText(menuItem.getText().toUpperCase());
                 code2.setText(menuItem.getText().toUpperCase());
+
             });
             items2.add(menuItem);
         }
 
-        choose2.getItems().addAll(items2);
+
         choose1.getItems().addAll(items1);
+        choose2.getItems().addAll(items2);
 
     }
 
     @FXML
     public void MenuInit() throws Exception {
         if (this.codes == null) {
-            Singleton db_singleton = Singleton.getInstance();
             this.codes = db_singleton.getDB().getAllCodes();
             System.out.println(this.codes);
         }
@@ -117,9 +124,13 @@ public class UIController implements Initializable {
 
     public void code1_text() {
         choose1.setText(code1.getText().toUpperCase());
+        String name_label = db_singleton.getDB().getName(code1.getText().toLowerCase());
+        from_label.setText("From: "+name_label);
     }
 
     public void code2_text() {
+        String name_label = db_singleton.getDB().getName(code2.getText().toLowerCase());
+        to_label.setText("To: "+name_label);
         choose2.setText(code2.getText().toUpperCase());
     }
 }

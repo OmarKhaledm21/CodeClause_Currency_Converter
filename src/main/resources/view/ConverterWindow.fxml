@@ -13,11 +13,11 @@
 <AnchorPane prefHeight="626.0" prefWidth="1051.0000999999975" styleClass="root" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Controllers.UIController">
   <children>
     <Button layoutX="314.0" layoutY="457.0" mnemonicParsing="false" onAction="#onConvertButtonClick" prefHeight="92.0" prefWidth="342.0" text="Convert" />
-    <TextField  fx:id="code1" layoutX="225.0" layoutY="201.0" prefHeight="42.0" prefWidth="179.0" promptText="Enter currency code" text="" />
-    <TextField  fx:id="code2" layoutX="636.0" layoutY="201.0" prefHeight="42.0" prefWidth="179.0" promptText="Enter currency code" text="" />
+    <TextField fx:id="code1" layoutX="225.0" layoutY="201.0" prefHeight="42.0" prefWidth="179.0" promptText="Enter currency code" text="" />
+    <TextField fx:id="code2" layoutX="636.0" layoutY="201.0" prefHeight="42.0" prefWidth="179.0" promptText="Enter currency code" text="" />
     <TextField fx:id="amountField" layoutX="225.0" layoutY="271.0" prefHeight="42.0" prefWidth="179.0" text="0.0" />
-    <Label id="welcomeText" layoutX="239.0" layoutY="149.0" prefHeight="42.0" prefWidth="73.0" text="From" />
-    <Label id="" layoutX="636.0" layoutY="149.0" prefHeight="42.0" prefWidth="151.0" text="To" />
+    <Label fx:id="from_label" layoutX="239.0" layoutY="149.0" prefHeight="42.0" prefWidth="197.0" text="From" />
+    <Label fx:id="to_label" layoutX="636.0" layoutY="149.0" prefHeight="42.0" prefWidth="197.0" text="To" />
     <Label id="welcomeText" layoutX="122.0" layoutY="271.0" prefHeight="42.0" prefWidth="73.0" text="Amount:" />
     <Label fx:id="code1_rate" layoutX="526.0" layoutY="282.0" text="0.0" />
     <Label fx:id="code2_rate" layoutX="722.0" layoutY="282.0" text="0.0" />
@@ -30,9 +30,7 @@
         <Font size="25.0" />
       </font>
     </Label>
-
-    <MenuButton  fx:id="choose1" layoutX="73.0" layoutY="209.0" mnemonicParsing="false" text="Choose Currency" />
-
-    <MenuButton  fx:id="choose2" layoutX="497.0" layoutY="209.0" mnemonicParsing="false" text="Choose Currency" />
+    <MenuButton fx:id="choose1" layoutX="73.0" layoutY="209.0" mnemonicParsing="false" text="Choose Currency" />
+    <MenuButton fx:id="choose2" layoutX="497.0" layoutY="209.0" mnemonicParsing="false" text="Choose Currency" />
   </children>
 </AnchorPane>
